@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+   <com.jcodecraeer.xrecyclerview.XRecyclerView
+       android:id="@+id/xrlv_car"
+       android:layout_width="match_parent"
+       android:layout_height="0dp"
+       android:layout_weight="1"></com.jcodecraeer.xrecyclerview.XRecyclerView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/cb_all_car"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="全选"/>
+
+        <TextView
+            android:id="@+id/price_car"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="100dp"
+            android:gravity="center"
+            android:text="合计"/>
+
+        <Button
+            android:id="@+id/js_close_btn"
+            android:layout_width="118dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="去结算"
+            android:layout_alignParentRight="true"
+            android:background="@android:color/holo_red_light"
+            android:textColor="@android:color/white"
+            android:layout_marginLeft="150dp"/>
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginRight="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/shape"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/pz_img"
+            android:layout_width="150dp"
+            android:layout_height="110dp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:src="@mipmap/ic_launcher" />
+
+            <TextView
+                android:id="@+id/pz_title"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:maxEms="5"
+                android:singleLine="true"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:text="水电费四方达"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/pz_price"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="12dp"
+                android:text="￥sfsf"
+                android:gravity="center"
+                android:textColor="@android:color/holo_red_light"
+                android:textSize="14sp" />
+    </LinearLayout>
+</LinearLayout>

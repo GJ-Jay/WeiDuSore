@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.SearchActivity">
+
+    <LinearLayout
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginTop="36dp"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="12dp"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:src="@drawable/home_btn_menu_l"/>
+
+        <EditText
+            android:id="@+id/text_search"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="50dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:textSize="16sp"
+            android:hint=" 请输入您要搜索的商品"
+            android:paddingLeft="20dp"
+            android:paddingBottom="4dp"
+            android:background="@drawable/home_text_bg"
+            android:textColor="@android:color/darker_gray"/>
+
+        <TextView
+            android:id="@+id/search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="搜索"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"/>
+
+    </LinearLayout>
+
+        <com.jcodecraeer.xrecyclerview.XRecyclerView
+            android:id="@+id/xlv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></com.jcodecraeer.xrecyclerview.XRecyclerView>
+
+        <!--<TextView
+            android:id="@+id/text_tishi"
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
+            android:layout_marginBottom="50dp"
+            android:text="抱歉，没有更多商品啦~"
+            android:visibility="gone"
+            android:layout_gravity="center"
+            android:textSize="14sp"
+            android:textColor="#999999"
+            android:gravity="center"/>-->
+
+    <LinearLayout
+        android:id="@+id/search_nogoods"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_marginTop="78dp"
+            android:layout_width="103dp"
+            android:layout_height="89dp"
+            android:background="@drawable/search_nogoods"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="抱歉，没有找到商品额~"
+            android:textSize="14sp"
+            android:textColor="#666666"/>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        android:padding="8dp"
+        android:background="@drawable/foot_item_bg">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/myfoot_img"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="@mipmap/ic_launcher"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:id="@+id/mtfoot_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="算法算饭三个傻瓜dgdhwjw山环水绕天津市人家"
+            android:ellipsize="end"
+            android:maxEms="6"
+            android:singleLine="true"
+            android:textSize="10sp"
+            android:textColor="@color/colorgry"/>
+
+        <RelativeLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/mtfoot_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="￥870"
+                android:textColor="@android:color/holo_red_light"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:id="@+id/myfoot_see"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="啊发发"
+                android:textSize="10sp"
+                android:textColor="@color/colorgry"/>
+
+            <TextView
+                android:id="@+id/myfoot_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="十大歌手-2v"
+                android:textSize="10sp"
+                android:textColor="@color/colorgry"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/myfoot_see"
+                android:layout_marginTop="10dp"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
