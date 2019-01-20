@@ -14,6 +14,7 @@ import com.gj.weidusore.fragment.Frag02;
 import com.gj.weidusore.fragment.Frag03;
 import com.gj.weidusore.fragment.Frag04;
 import com.gj.weidusore.fragment.Frag05;
+import com.umeng.analytics.MobclickAgent;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -97,4 +98,15 @@ public class GoodsHomeActivity extends AppCompatActivity {
             }
         });
     }
+    @Override
+    public void onResume() {
+        super.onResume();
+        MobclickAgent.onResume(this);
+    }
+    @Override
+    public void onPause() {
+        super.onPause();
+        MobclickAgent.onPause(this);
+    }
+
 }

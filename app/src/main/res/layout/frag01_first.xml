@@ -1,169 +1,181 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<LinearLayout android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <RelativeLayout
-        android:id="@+id/top"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
-        android:layout_marginTop="36dp"
+            <RelativeLayout
+                android:id="@+id/top"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
+                android:layout_marginTop="36dp"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="12dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/home_btn_menu_l"/>
+
+                <TextView
+                    android:id="@+id/text_search"
+                    android:layout_width="300dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:textSize="16sp"
+                    android:text="请输入您要搜索的商品"
+                    android:background="@drawable/home_text_bg"
+                    android:layout_centerHorizontal="true"
+                    android:paddingLeft="20dp"
+                    android:gravity="center_vertical"
+                    android:textColor="@android:color/darker_gray"/>
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/home_btn_menu_r"
+                    />
+            </RelativeLayout>
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:gravity="center"
-        android:layout_gravity="center"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:layout_width="18dp"
-            android:layout_height="12dp"
-            android:layout_centerVertical="true"
-            android:src="@drawable/home_btn_menu_l"/>
-
-        <TextView
-            android:id="@+id/text_search"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:textSize="16sp"
-            android:text="请输入您要搜索的商品"
-            android:background="@drawable/home_text_bg"
-            android:layout_centerHorizontal="true"
-            android:paddingLeft="20dp"
-            android:gravity="center_vertical"
-            android:textColor="@android:color/darker_gray"/>
-
-        <ImageView
-            android:layout_width="18dp"
-            android:layout_height="18dp"
-            android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"
-            android:src="@drawable/home_btn_menu_r"
-            />
-    </RelativeLayout>
-
-    <android.support.v4.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
-
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
-
-            <com.youth.banner.Banner
-                android:id="@+id/banner"
-                android:layout_below="@+id/top"
-                android:layout_marginTop="20dp"
-                android:layout_width="match_parent"
-                android:layout_marginLeft="24dp"
-                android:layout_marginRight="24dp"
-                android:background="@drawable/home_banner_shape"
-                android:layout_height="150dp"/>
-
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_marginTop="30dp"
-                android:background="@drawable/hote_bitmap"
-                android:orientation="horizontal">
-                
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.zhouwei.mzbanner.MZBannerView
+                    android:id="@+id/banner"
+                    android:layout_below="@+id/top"
+                    android:layout_width="match_parent"
+                    app:open_mz_mode="true"
+                    app:canLoop="true"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginRight="24dp"
+                    app:indicatorAlign="center"
+                    app:indicatorPaddingLeft="10dp"
+                    android:background="@drawable/home_banner_shape"
+                    android:layout_height="150dp"/>
+                <!--android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"-->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="30dp"
-                    android:text="热销新品"
-                    android:textSize="16sp"
-                    android:gravity="center"
-                    android:textColor="@color/colorHoteText"/>
-                
-                <ImageView
-                    android:layout_width="16dp"
-                    android:layout_height="4dp"
-                    android:layout_gravity="center_vertical"
-                    android:src="@drawable/home_btn_more_pink"
-                    android:layout_marginRight="24dp"/>
-    
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/hote_bitmap"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="30dp"
+                        android:text="热销新品"
+                        android:layout_marginLeft="35dp"
+                        android:textSize="16sp"
+                        android:gravity="center"
+                        android:textColor="@color/colorHoteText"/>
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="4dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/home_btn_more_pink"
+                        android:layout_marginRight="24dp"/>
+
+                </LinearLayout>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rlv1_rx"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/moli_bitmap"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="35dp"
+                        android:text="魔力时尚"
+                        android:textSize="16sp"
+                        android:gravity="center"
+                        android:textColor="@android:color/holo_blue_dark"/>
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="4dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/home_btn_more_purple"
+                        android:layout_marginRight="24dp"/>
+
+                </LinearLayout>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rlv2_ml"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginRight="24dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/pin_bitmap"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="35dp"
+                        android:text="品质生活"
+                        android:textSize="16sp"
+                        android:gravity="center"
+                        android:textColor="@color/colorHoteText"/>
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="4dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/home_btn_more_pink"
+                        android:layout_marginRight="24dp"/>
+
+                </LinearLayout>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rlv3_pz"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="14dp"
+                    android:layout_marginRight="24dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
+
             </LinearLayout>
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/rlv1_rx"
-                android:layout_width="match_parent"
-                android:layout_marginLeft="24dp"
-                android:layout_marginRight="10dp"
-                android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/moli_bitmap"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="match_parent"
-                    android:text="魔力时尚"
-                    android:textSize="16sp"
-                    android:gravity="center"
-                    android:textColor="@android:color/holo_blue_dark"/>
-
-                <ImageView
-                    android:layout_width="16dp"
-                    android:layout_height="4dp"
-                    android:layout_gravity="center_vertical"
-                    android:src="@drawable/home_btn_more_purple"
-                    android:layout_marginRight="24dp"/>
-
-            </LinearLayout>
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/rlv2_ml"
-                android:layout_width="match_parent"
-                android:layout_marginLeft="24dp"
-                android:layout_marginRight="24dp"
-                android:layout_marginTop="10dp"
-                android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/pin_bitmap"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="match_parent"
-                    android:text="品质生活"
-                    android:textSize="16sp"
-                    android:gravity="center"
-                    android:textColor="@color/colorHoteText"/>
-
-                <ImageView
-                    android:layout_width="16dp"
-                    android:layout_height="4dp"
-                    android:layout_gravity="center_vertical"
-                    android:src="@drawable/home_btn_more_pink"
-                    android:layout_marginRight="24dp"/>
-
-            </LinearLayout>
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/rlv3_pz"
-                android:layout_width="match_parent"
-                android:layout_marginLeft="24dp"
-                android:layout_marginRight="24dp"
-                android:layout_marginTop="10dp"
-                android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
-
         </LinearLayout>
 
-    </android.support.v4.widget.NestedScrollView>
-
+    </ScrollView>
 </LinearLayout>

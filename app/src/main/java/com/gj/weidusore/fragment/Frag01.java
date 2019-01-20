@@ -33,6 +33,9 @@ import com.gj.weidusore.presenter.GoodsListPresenter;
 import com.gj.weidusore.util.UIUtils;
 import com.youth.banner.Banner;
 import com.youth.banner.loader.ImageLoader;
+import com.zhouwei.mzbanner.MZBannerView;
+import com.zhouwei.mzbanner.holder.MZHolderCreator;
+import com.zhouwei.mzbanner.holder.MZViewHolder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,7 +50,7 @@ public class Frag01 extends Fragment implements View.OnClickListener {
     RelativeLayout top;
     Unbinder unbinder;
     @BindView(R.id.banner)
-    Banner banner;
+    MZBannerView banner;
     @BindView(R.id.rlv1_rx)
     RecyclerView rlv1Rx;
     @BindView(R.id.rlv2_ml)
@@ -71,23 +74,6 @@ public class Frag01 extends Fragment implements View.OnClickListener {
         BannerPresenter bannerPresenter = new BannerPresenter(new MyBanner());//调用P层
         GoodsListPresenter listPresenter = new GoodsListPresenter(new MyList());
 
-        myAdaper1RX = new MyAdaper1RX(getActivity());
-        myAdaper2ML = new MyAdaper2ML(getActivity());
-        myAdaper3PZ = new MyAdaper3PZ(getActivity());
-
-        StaggeredGridLayoutManager rx = new StaggeredGridLayoutManager(3,
-                StaggeredGridLayoutManager.VERTICAL);
-        StaggeredGridLayoutManager ml = new StaggeredGridLayoutManager(1,
-                StaggeredGridLayoutManager.VERTICAL);
-        StaggeredGridLayoutManager pz = new StaggeredGridLayoutManager(2,
-                StaggeredGridLayoutManager.VERTICAL);
-
-        rlv1Rx.setLayoutManager(rx);//添加布局管理器
-        rlv1Rx.setAdapter(myAdaper1RX);//添加适配器
-        rlv2Ml.setLayoutManager(ml);
-        rlv2Ml.setAdapter(myAdaper2ML);
-        rlv3Pz.setLayoutManager(pz);
-        rlv3Pz.setAdapter(myAdaper3PZ);
         bannerPresenter.reqeust();
         listPresenter.reqeust();
         return view;
@@ -98,19 +84,32 @@ public class Frag01 extends Fragment implements View.OnClickListener {
         startActivity(new Intent(getActivity(),SearchActivity.class));
     }
 
+
+
     class MyBanner implements DataCall<ResultLogin<List<GoodsBanner>>> {
 
         @Override
         public void success(ResultLogin<List<GoodsBanner>> data) {
             if (data.getStatus().equals("0000")) {//判断请求成功
-                ArrayList<String> list = new ArrayList<>();//创建对象
+
+                banner.setIndicatorVisible(false);//魅族banner
+                banner.setPages(data.getResult(), new MZHolderCreator<BannerViewHolder>() {
+
+                    @Override
+                    public BannerViewHolder createViewHolder() {
+                        return new BannerViewHolder();
+                    }
+                });//设置数据
+                banner.start();
+
+                /*ArrayList<String> list = new ArrayList<>();//创建对象
                 List<GoodsBanner> result = data.getResult();
                 for (int i = 0; i < result.size(); i++) {
                     list.add(result.get(i).getImageUrl());
                 }
                 banner.setImages(list);
                 banner.setImageLoader(new MyImage());
-                banner.start();
+                banner.start();*/
             }
         }
 
@@ -133,12 +132,29 @@ public class Frag01 extends Fragment implements View.OnClickListener {
                 List<GoodsList.MlssBean.CommodityListBeanXX> commodityList1 = mlss.get(0).getCommodityList();
                 List<GoodsList.PzshBean.CommodityListBeanX> commodityList2 = pzsh.get(0).getCommodityList();
 
+                myAdaper1RX = new MyAdaper1RX(getActivity());
+                myAdaper2ML = new MyAdaper2ML(getActivity());
+                myAdaper3PZ = new MyAdaper3PZ(getActivity());
+
+                StaggeredGridLayoutManager rx = new StaggeredGridLayoutManager(3,
+                        StaggeredGridLayoutManager.VERTICAL);
+                StaggeredGridLayoutManager ml = new StaggeredGridLayoutManager(1,
+                        StaggeredGridLayoutManager.VERTICAL);
+                StaggeredGridLayoutManager pz = new StaggeredGridLayoutManager(2,
+                        StaggeredGridLayoutManager.VERTICAL);
+
+                rlv1Rx.setLayoutManager(rx);//添加布局管理器
+                rlv1Rx.setAdapter(myAdaper1RX);//添加适配器
+                rlv2Ml.setLayoutManager(ml);
+                rlv2Ml.setAdapter(myAdaper2ML);
+                rlv3Pz.setLayoutManager(pz);
+                rlv3Pz.setAdapter(myAdaper3PZ);
 
                 myAdaper1RX.addList(commodityList);//添加集合
-                myAdaper1RX.notifyDataSetChanged();
                 myAdaper2ML.addList(commodityList1);
-                myAdaper2ML.notifyDataSetChanged();
                 myAdaper3PZ.addList(commodityList2);
+                myAdaper1RX.notifyDataSetChanged();
+                myAdaper2ML.notifyDataSetChanged();
                 myAdaper3PZ.notifyDataSetChanged();
             }
         }
@@ -162,6 +178,23 @@ public class Frag01 extends Fragment implements View.OnClickListener {
             SimpleDraweeView simpleDraweeView =
                     (SimpleDraweeView) View.inflate(getContext(), R.layout.layout_banner, null);
             return simpleDraweeView;
+        }
+    }
+
+    private class BannerViewHolder implements MZViewHolder<GoodsBanner>{
+
+        private SimpleDraweeView mImageView;
+
+        @Override
+        public View createView(Context context) {
+            View view = LayoutInflater.from(context).inflate(R.layout.layout_banner_item,null);//返回页面布局
+            mImageView = view.findViewById(R.id.banner_image);
+            return view;
+        }
+
+        @Override
+        public void onBind(Context context, int i, GoodsBanner goodsBanner) {
+            mImageView.setImageURI(Uri.parse(goodsBanner.getImageUrl()));//数据绑定
         }
     }
 }

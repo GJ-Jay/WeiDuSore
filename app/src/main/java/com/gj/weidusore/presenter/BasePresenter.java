@@ -23,7 +23,7 @@ public abstract class BasePresenter {//抽离的P
         this.dataCall = dataCall;
     }
 
-    protected abstract Observable<ResultLogin<List<Search>>> observable(Object...args);
+    protected abstract Observable observable(Object...args);
 
     public void reqeust(Object...args){
         if(running){//正在运行就驳回

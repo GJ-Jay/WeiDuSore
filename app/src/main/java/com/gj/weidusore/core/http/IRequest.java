@@ -2,6 +2,7 @@ package com.gj.weidusore.core.http;
 
 import com.gj.weidusore.bean.Circle;
 import com.gj.weidusore.bean.Comment;
+import com.gj.weidusore.bean.DetailsBean;
 import com.gj.weidusore.bean.Foot;
 import com.gj.weidusore.bean.Goods;
 import com.gj.weidusore.bean.GoodsBanner;
@@ -11,18 +12,21 @@ import com.gj.weidusore.bean.Search;
 import com.gj.weidusore.bean.UserInfoLogin;
 import com.gj.weidusore.bean.address.Address;
 import com.gj.weidusore.bean.car.Car;
+import com.gj.weidusore.bean.car.ShopCar;
 import com.gj.weidusore.bean.homebean.GoodsList;
+import com.gj.weidusore.bean.order.Null_Bean;
 
 import java.util.List;
 
 import io.reactivex.Observable;
+import okhttp3.MultipartBody;
 import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
-import retrofit2.http.Path;
+import retrofit2.http.PUT;
 import retrofit2.http.Query;
 
 public interface IRequest {
@@ -67,6 +71,41 @@ public interface IRequest {
     Observable<ResultLogin<Goods>> homegoods (@Header("userId") long userId,
                                          @Header("sessionId") String sessionId,
                                          @Query("commodityId") int commodityId);
+
+    /**
+     * 商品详情
+     * @param userId
+     * @param sessionId
+     * @param commodityId
+     * @return
+     */
+    @GET("commodity/v1/findCommodityDetailsById")
+    Observable<ResultLogin<DetailsBean>> details(@Header("userId")long userId,
+                                            @Header("sessionId")String sessionId,
+                                            @Query("commodityId")int commodityId);
+
+    /**
+     * 购物车列表
+     * @param userId
+     * @param sessionId
+     * @return
+     */
+    @GET("order/verify/v1/findShoppingCart")
+    Observable<ResultLogin<List<ShopCar>>> shopcar(@Header("userId")long userId,
+                                                   @Header("sessionId")String sessionId);
+
+    /**
+     * 同步购物车数据
+     * @param userId
+     * @param sessionId
+     * @param data
+     * @return
+     */
+    @PUT("order/verify/v1/syncShoppingCart")
+    @FormUrlEncoded
+    Observable<ResultLogin> addTo(@Header("userId") long userId,
+                             @Header("sessionId") String sessionId,
+                             @Field("data") String data);
     //评论
     @GET("commodity/v1/CommodityCommentList")
     Observable<ResultLogin<List<Comment>>> comment(@Query("commodityId")int commodityId,
@@ -105,4 +144,30 @@ public interface IRequest {
                                       @Field("phone")String phone,
                                       @Field("address")String address,
                                       @Field("zipCode")String zipCode);
+
+    /*//查询订单
+    @GET("order/verify/v1/findOrderListByStatus")
+    Observable<ResultLogin<List<OrderBean>>> order(@Header("userId")long userId,
+                                                       @Header("sessionId")String sessionId,
+                                                       @Query("status") int status,
+                                                       @Query("page")int page,
+                                                       @Query("count")int count);*/
+
+    /*
+   订单
+    */
+    @GET("order/verify/v1/findOrderListByStatus")
+    Observable<ResultLogin<List<Null_Bean>>> order(@Header("userId") long userId,
+                                                   @Header("sessionId") String sessionId,
+                                                   @Query("page") int page,
+                                                   @Query("count") int count,
+                                                   @Query("status") int status);
+
+    /**
+     * 发布圈子
+     */
+    @POST("circle/verify/v1/releaseCircle")
+    Observable<ResultLogin> releaseCircle(@Header("userId") long userId,
+                                     @Header("sessionId")String sessionId,
+                                     @Body MultipartBody body);
 }

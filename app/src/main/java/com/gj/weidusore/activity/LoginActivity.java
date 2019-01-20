@@ -103,7 +103,8 @@ public class LoginActivity extends WDActivity {
                     WDApplication.getShare().edit().putString("mobile", name)
                             .putString("pas", pwd).commit();//设置账户密码
                 }
-                loginPresenter.reqeust(name, MD5Utils.md5(pwd));
+//                loginPresenter.reqeust(name, MD5Utils.md5(pwd));
+                loginPresenter.reqeust(name, pwd);
                 break;
 
             case R.id.image_login_eye://显示隐藏密码切换

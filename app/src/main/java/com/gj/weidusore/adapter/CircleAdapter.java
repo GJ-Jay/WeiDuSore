@@ -73,9 +73,9 @@ public class CircleAdapter extends RecyclerView.Adapter<CircleAdapter.MyHolder> 
             myHolder.gridLayoutManager.setSpanCount(colNum);//设置列数
 
             myHolder.imageAdapter.clear();//清空图片适配器集合
-            for (int j = 0; j <colNum ; j++) {
+//            for (int j = 0; j <colNum ; j++) {
                 myHolder.imageAdapter.addAll(Arrays.asList(images));
-            }//添加图片的聚合
+//            }//添加图片的聚合
             myHolder.imageAdapter.notifyDataSetChanged();
         }
     }

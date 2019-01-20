@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.gj.weidusore.R;
+import com.gj.weidusore.activity.DetailsActivity;
 import com.gj.weidusore.activity.Goods2ProductActivity;
 import com.gj.weidusore.activity.GoodsProductActivity;
 import com.gj.weidusore.bean.homebean.GoodsList;
@@ -47,7 +48,7 @@ public class MyAdaper3PZ extends RecyclerView.Adapter<MyAdaper3PZ.MyHolder> {
             @Override
             public void onClick(View v) {
 //                Intent intent = new Intent(context,GoodsProductActivity.class);
-                Intent intent = new Intent(context,GoodsProductActivity.class);
+                Intent intent = new Intent(context,DetailsActivity.class);
                 intent.putExtra("commodityId", commodityListBeanX.getCommodityId());
                 context.startActivity(intent);
             }

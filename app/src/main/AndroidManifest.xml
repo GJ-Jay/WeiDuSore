@@ -3,6 +3,14 @@
     package="com.gj.weidusore">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+    <!--腾讯bugly-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
 
     <application
         android:name=".core.WDApplication"
@@ -20,6 +28,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.MainActivity" />
+        <activity android:name=".activity.DetailsActivity" />
         <activity android:name=".activity.LoginActivity" />
         <activity android:name=".activity.GoodsHomeActivity" />
         <activity android:name=".activity.SearchActivity" />
@@ -29,7 +38,23 @@
         <activity android:name=".activity.Goods2ProductActivity" />
         <activity android:name=".activity.MyFootActivity" />
         <activity android:name=".activity.address.MyAddressActivity" />
-        <activity android:name=".activity.address.NewAddressActivity"></activity>
+        <activity android:name=".activity.address.NewAddressActivity" />
+        <activity android:name=".activity.mycircle.AddCircleActivity"></activity>
+        <activity android:name=".activity.zf.ZFActivity"></activity>
+        <activity android:name=".activity.car.AccountActivity"/>
+        <!--友盟统计-->
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="5c3f29e2f1f556a26b000bd8"/>????// 自己产品的key
+        <!--<meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="ceshi"/>????// 名字
+-->
+        <!--多渠道打包-->
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="${UMENG_CHANNEL_VALUE}" />
+
     </application>
 
 </manifest>

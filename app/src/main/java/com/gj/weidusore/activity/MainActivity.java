@@ -80,7 +80,8 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(this,"请输入密码",Toast.LENGTH_SHORT).show();
                     return;
                 }
-                regPresenter.reqeust(name, MD5Utils.md5(pwd));
+//                regPresenter.reqeust(name, MD5Utils.md5(pwd));
+                regPresenter.reqeust(name, pwd);
                 break;
 
             case R.id.image_reg_eye://显示隐藏密码切换

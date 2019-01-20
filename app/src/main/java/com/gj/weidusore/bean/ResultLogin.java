@@ -10,9 +10,18 @@ public class ResultLogin<T> {
      */
 
     private T result;
+    private T orderList;
     private String message;
     private String status;
     private String headPath;//用于修改头像
+
+    public T getOrderList() {
+        return orderList;
+    }
+
+    public void setOrderList(T orderList) {
+        this.orderList = orderList;
+    }
 
     public T getResult() {
         return result;
