@@ -6,6 +6,9 @@ buildscript {
         google()
         jcenter()
 
+        //友盟统计
+        maven { url 'https://dl.bintray.com/umsdk/release' }
+
         //详情
         maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
         mavenCentral()
@@ -25,10 +28,13 @@ allprojects {
         google()
         jcenter()
 
+        //友盟统计
+        maven { url 'https://dl.bintray.com/umsdk/release' }
+
         //详情
         maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
         mavenCentral()
-        maven { url "https://jitpack.io" }
+        maven { url "https://jitpack.io" }//魅族banner
     }
 }
 

@@ -31,7 +31,6 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class MyAddressActivity extends AppCompatActivity {
-
     @BindView(R.id.address_finish)
     TextView addressFinish;
     @BindView(R.id.address_add)
